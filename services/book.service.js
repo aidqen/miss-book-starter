@@ -2,16 +2,16 @@ import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const BOOK_KEY = 'bookDB'
-_createbooks()
+_createBooks()
 
 export const bookService = {
   query,
   get,
   remove,
   save,
-  getEmptyBook,
-  getDefaultFilter,
-
+//   getEmptyBook,
+//   getDefaultFilter,
+  
 }
 // For Debug (easy access from console):
 // window.cs = bookService
@@ -50,13 +50,13 @@ function save(book) {
   }
 }
 
-function getEmptybook(ctg = '', maxSpeed = '') {
-  return { vendor, maxSpeed }
-}
+// function getEmptybook(ctg = '', maxSpeed = '') {
+//   return { vendor, maxSpeed }
+// }
 
-function getDefaultFilter(filterBy = { txt: '', minSpeed: 0 }) {
-  return { txt: filterBy.txt, minSpeed: filterBy.minSpeed }
-}
+// function getDefaultFilter(filterBy = { txt: '', minSpeed: 0 }) {
+//   return { txt: filterBy.txt, minSpeed: filterBy.minSpeed }
+// }
 
 function _createBooks() {
   const ctgs = ['Love', 'Fiction', 'Poetry', 'Computers', 'Religion']
@@ -81,7 +81,7 @@ function _createBooks() {
     }
     books.push(book)
   }
-  console.log('books', books)
+  storageService.save(BOOK_KEY, books)
 }
 
 // function _createbook(vendor, maxSpeed = 250) {
