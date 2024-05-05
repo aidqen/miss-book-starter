@@ -1,5 +1,5 @@
 
-export function Home(params) {
+export function Home() {
      
     return 
 }
