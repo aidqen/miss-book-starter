@@ -20,11 +20,11 @@ function query(filterBy = {}) {
   return storageService.query(BOOK_KEY).then(books => {
     if (filterBy.txt) {
       const regExp = new RegExp(filterBy.txt, 'i')
-      books = books.filter(book => regExp.test(book.vendor))
+      books = books.filter(book => regExp.test(book.title))
     }
 
-    if (filterBy.minSpeed) {
-      books = books.filter(book => book.maxSpeed >= filterBy.minSpeed)
+    if (filterBy.minPrice) {
+      books = books.filter(book => book.listPrice.amount >= filterBy.minPrice)
     }
 
     return books
