@@ -8,18 +8,29 @@ export function BookFilter({ books, filterBy, onSetFilterBy}) {
     return Math.max(max, book.listPrice.amount)
   }, 0)
 
+  useEffect(() => {
+    onSetFilterBy(editFilterBy)
+  }, [editFilterBy])
+  
+
   function handleFilterChange({target}) {
     const field = target.name
-    const value = target.value
+    let value = target.value
 
-    onSetFilterBy(prevFilter => ({ ...prevFilter, [field]:value}))
+    if (field === 'minPrice') {
+        value = +value
+        setRange(value)
+    }
+
+    setEditFilterBy(prevFilter => ({ ...prevFilter, [field]:value}))
   }
 
+  
   return (
     <section className="filter-container flex flex-row justify-between w-100">
       <div className="price-filter">
         <label>{range}</label>
-        <input type="range" onChange={handleFilterChange} max={maxPrice}/>
+        <input type="range" name="minPrice" onChange={handleFilterChange} max={maxPrice}/>
       </div>
       <div className="name-filter">
         <input type="text" onChange={handleFilterChange} id="search" name="txt"/>

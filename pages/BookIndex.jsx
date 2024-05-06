@@ -7,16 +7,18 @@ export function BookIndex() {
     const [books, setBooks] = useState([]);
     const [filterBy, setFilterBy] = useState({minPrice: 0, txt: ''});
     
-    
     useEffect(() => {
         bookService.query(filterBy)
-            .then(booksPrm => setBooks(booksPrm));
-    }, []);
+            .then(booksPrm => setBooks(booksPrm))
+            .catch(err => {
+                console.eror('err:', err)
+                showErrorMsg('Cannot load cars')
+            });
+    }, [filterBy]);
 
     function onSetFilterBy(filterBy) {
         setFilterBy(prevFilter => ({...prevFilter, ...filterBy}))
     }
-    
     
   return (
     <React.Fragment>
