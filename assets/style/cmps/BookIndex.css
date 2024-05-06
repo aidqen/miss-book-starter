@@ -1,0 +1,13 @@
+td {
+    border: 1px solid lightgray;
+    padding: 1em;
+}
+
+thead {
+    background-color: lightcyan;
+}
+
+thead td {
+    text-align: center;
+    font-weight: 600;
+}
