@@ -31,3 +31,27 @@ img {
 .book-preview:hover {
     opacity: 0.8;
 }
+
+.actions {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+}
+
+.actions > * {
+    cursor: pointer;
+}
+
+button {
+    color: white;
+    background-color: transparent;
+    border: 0;
+}
+
+
+h2 {
+    text-transform: capitalize;
+}

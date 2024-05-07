@@ -1,5 +1,5 @@
-import { BookFilter } from '../cmps/bookIndex/BookFilter.jsx'
-import { BookList } from '../cmps/bookIndex/BookList.jsx'
+import { BookFilter } from '../cmps/BookIndex/BookFilter.jsx'
+import { BookList } from '../cmps/BookIndex/BookList.jsx'
 import { bookService } from '../services/book.service.js'
 const { useState, useEffect } = React
 
@@ -20,9 +20,6 @@ export function BookIndex() {
   function onSetFilterBy(filterBy) {
     setFilterBy(prevFilter => ({ ...prevFilter, ...filterBy }))
   }
-
-  console.log(books);
-  console.log(!books);
 
   return (
     <React.Fragment>

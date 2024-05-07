@@ -32,11 +32,10 @@ body {
 }
 
 h3 {
-    font-size: 14px;
     font-weight: 600;
 }
 
 h3 span {
     font-weight: 400;
-    font-size: 12px;
+    text-transform: capitalize;
 }

@@ -2,7 +2,8 @@
 header {
     display: flex;
     flex-direction: row;
-    padding: 1em;
+    align-items: center;
+    padding: 2em;
     border-bottom: 1px solid white;
     margin-bottom: 2em;
 }

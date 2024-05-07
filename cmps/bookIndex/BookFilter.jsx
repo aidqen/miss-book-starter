@@ -29,7 +29,7 @@ export function BookFilter({ books, filterBy, onSetFilterBy}) {
   return (
     <section className="filter-container flex flex-row justify-between w-100">
       <div className="price-filter">
-        <label>{range}</label>
+        <label>Min Price: {range} EUR</label>
         <input type="range" name="minPrice" onChange={handleFilterChange} max={maxPrice}/>
       </div>
       <div className="name-filter">
