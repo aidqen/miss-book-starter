@@ -1,7 +1,7 @@
-import { BookFilter } from '../cmps/BookIndex/BookFilter.jsx'
-import { BookList } from '../cmps/BookIndex/BookList.jsx'
-import { bookService } from '../services/book.service.js'
 const { useState, useEffect } = React
+import { bookService } from '../services/book.service.js'
+import { BookFilter } from '../cmps/bookIndex/BookFilter.jsx'
+import { BookList } from '../cmps/bookIndex/BookList.jsx'
 
 export function BookIndex() {
   const [books, setBooks] = useState([])
