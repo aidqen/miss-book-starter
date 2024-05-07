@@ -1,0 +1,38 @@
+.book-details {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 4em;
+    border: 1px solid white;
+}
+
+.text-details {
+    margin-inline-end: 1em;
+}
+
+.book-details h2 {
+    font-size: 3em;
+}
+
+.book-details h3 {
+    font-size: 1.4em;
+}
+.book-details h2 span {
+    font-weight: 200;
+}
+
+.book-details h3 span {
+    font-weight: 200;
+}
+
+.book-details p {
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.book-details p span {
+    font-weight: 200;
+}

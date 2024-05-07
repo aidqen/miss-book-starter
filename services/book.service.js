@@ -50,15 +50,9 @@ function save(book) {
   }
 }
 
-// function getEmptybook(ctg = '', maxSpeed = '') {
-//   return { vendor, maxSpeed }
-// }
-
-// function getDefaultFilter(filterBy = { txt: '', minSpeed: 0 }) {
-//   return { txt: filterBy.txt, minSpeed: filterBy.minSpeed }
-// }
-
 function _createBooks() {
+  if (storageService.query(BOOK_KEY)) return
+  
   const ctgs = ['Love', 'Fiction', 'Poetry', 'Computers', 'Religion']
   const books = []
   for (let i = 0; i < 20; i++) {
@@ -85,11 +79,6 @@ function _createBooks() {
   storageService.save(BOOK_KEY, books)
 }
 
-// function _createbook(vendor, maxSpeed = 250) {
-//   const book = getEmptybook(vendor, maxSpeed)
-//   book.id = utilService.makeId()
-//   return book
-// }
 
 function _setNextPrevbookId(book) {
   return storageService.query(BOOK_KEY).then(books => {

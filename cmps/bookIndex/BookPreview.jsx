@@ -1,7 +1,8 @@
-
+const { Link } = ReactRouterDOM
+const { useParams, useNavigate } = ReactRouter
 
 export function BookPreview({ book }) {
-  const { title, authors, subtitle, publishedDate, pageCount, categories, listPrice, idx } = book
+  const { id, title, authors, subtitle, publishedDate, pageCount, categories, listPrice, idx } = book
   return (
     <li className="book-preview">
       <h2>{title}</h2>
@@ -16,6 +17,11 @@ export function BookPreview({ book }) {
         }`}</span>
       </h3>
       <img src={`../../BooksImages/${idx}.jpg`} alt="" />
+
+      <div className="actions">
+        <Link to={`/books/details/${id}`}>Details</Link>
+        <button>Delete</button>
+      </div>
     </li>
   )
 }
