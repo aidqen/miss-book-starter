@@ -64,6 +64,7 @@ function _createBooks() {
   for (let i = 0; i < 20; i++) {
     const book = {
       id: utilService.makeId(),
+      idx: i+1,
       title: utilService.makeLorem(2),
       subtitle: utilService.makeLorem(4),
       authors: [utilService.makeLorem(1)],
