@@ -1,0 +1,33 @@
+ul.books-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 15em));
+    column-gap: 1.5em;
+    row-gap: 1em;
+}
+
+ul.books-list li {
+    padding: 0.7em;
+    border: 1px solid lightgray;
+    border-radius: 12px;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    
+}
+
+h2 {
+    margin-bottom: 0.5em;
+}
+
+img {
+    margin-top: 2em;
+    border-radius: 10px;
+}
+
+.book-preview {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.book-preview:hover {
+    opacity: 0.8;
+}

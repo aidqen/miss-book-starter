@@ -4,4 +4,12 @@
 
 .filter-container {
     border: 1px solid lightslategray;
+    border-radius: 10px;
+    padding: 1em;
+    align-items: center;
+}
+
+.price-filter, .name-filter {
+    display: flex;
+    align-items: center;
 }

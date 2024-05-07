@@ -9,5 +9,5 @@
 
 /* Components */
 @import "cmps/Header.css";
-@import "cmps/BookIndex.css";
+@import "cmps/BookList.css";
 @import "cmps/BookFilter.css";
