@@ -3,10 +3,10 @@ import { BookPreview } from './BookPreview.jsx'
 export function BookList({ books }) {
   console.log(books)
   return (
-    <React.Fragment>
+    <ul className='book-list'>
       {books.map(book => {
         return <BookPreview key={book.id} book={book}/>
       })}
-    </React.Fragment>
+    </ul>
   )
 }

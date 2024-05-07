@@ -23,22 +23,9 @@ export function BookIndex() {
   return (
     <React.Fragment>
     <BookFilter books={books} filterBy={filterBy} onSetFilterBy={onSetFilterBy}/>
-    <table>
-        <thead>
-            <tr>
-                <td>Title:</td>
-                <td>Authors:</td>
-                <td>Subtitle:</td>
-                <td>Publish Date:</td>
-                <td>Page Count:</td>
-                <td>Categories:</td>
-                <td>Price:</td>
-            </tr>
-        </thead>
-        <tbody>
+        <div className="books-container">
             <BookList books={books}/>
-        </tbody>
-    </table>
+        </div>
     </React.Fragment>
   )
 }
