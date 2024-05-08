@@ -17,6 +17,12 @@ export function BookIndex() {
       })
   }, [filterBy])
 
+  function onRemove(bookId) {
+    bookService.remove(bookId)
+                .then(setBooks(prevBooks => prevBooks.filter(book => book.id !== bookId)))
+    // .then(prevBooks => setBooks(prevBooks.filter(book => book.id !== bookId)))
+  }
+
   function onSetFilterBy(filterBy) {
     setFilterBy(prevFilter => ({ ...prevFilter, ...filterBy }))
   }
@@ -29,7 +35,7 @@ export function BookIndex() {
           filterBy={filterBy}
           onSetFilterBy={onSetFilterBy}
         />
-        {books.length === 0 ? <h2>Loading...</h2> : <BookList books={books} />}
+        {books.length === 0 ? <h2>Loading...</h2> : <BookList books={books} onRemove={onRemove} />}
       </div>
     </React.Fragment>
   )

@@ -1,10 +1,10 @@
-const { Link } = ReactRouterDOM
 const { useParams, useNavigate } = ReactRouter
 
 export function BookPreview({ book, onRemove }) {
-  const { id, title, authors, subtitle, publishedDate, pageCount, categories, listPrice, idx } = book
+  const {title, authors, subtitle, publishedDate, pageCount, categories, listPrice, idx,} = book
+
   return (
-    <li className="book-preview">
+    <React.Fragment>
       <h2>{title}</h2>
       <h3>Authors: <span>{authors.join(' ')}</span></h3>
       <h3>Subtitle: <span>{subtitle}</span></h3>
@@ -12,16 +12,12 @@ export function BookPreview({ book, onRemove }) {
       <h3>Pages: <span>{pageCount}</span></h3>
       <h3>Categories: <span>{categories}</span></h3>
       <h3 className={listPrice.isOnSale ? 'bold' : ''}>
-        Price: <span>{`${listPrice.amount}${listPrice.currencyCode} ${
+        Price:{' '}
+        <span>{`${listPrice.amount}${listPrice.currencyCode} ${
           listPrice.isOnSale ? 'On Sale!' : ''
         }`}</span>
       </h3>
-      <img src={`../../BooksImages/${idx}.jpg`} alt="" />
-
-      <div className="actions">
-        <Link to={`/books/details/${id}`}>Details</Link>
-        <button onClick={onRemove}>Delete</button>
-      </div>
-    </li>
+      <img src={`../../BooksImages/${idx}.jpg`} alt="book-cover" />
+    </React.Fragment>
   )
 }
