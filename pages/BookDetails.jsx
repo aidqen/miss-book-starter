@@ -1,5 +1,8 @@
 const { useParams, useNavigate } = ReactRouter
 const { useState, useEffect } = React
+
+import { BookDetailsMain } from '../cmps/BookDetails/BookDetailsMain.jsx'
+import { NextPrevBook } from '../cmps/BookDetails/NextPrevBook.jsx'
 import { bookService } from '../services/book.service.js'
 
 export function BookDetails() {
@@ -10,8 +13,9 @@ export function BookDetails() {
   useEffect(() => {
     if (!params.bookId) navigate('/books')
 
-    bookService.get(params.bookId).then(setBook).then(console.log(book))
-  }, [])
+    bookService.get(params.bookId)
+    .then(setBook)
+  }, [params])
 
   if (book) {
     console.log(book)
@@ -19,35 +23,12 @@ export function BookDetails() {
 
   return (
     <div className="book-details">
-      {!book ? (
-        <h2>Loading...</h2>
-      ) : (
+      {!book ? (<h2>Loading...</h2>) : (
         <React.Fragment>
           <img src={`../BooksImages/${book.idx}.jpg`} alt="" />
-          <div className="text-details">
-            <h2>{book.title}</h2>
-            <h3>
-              Authors: <span>{book.authors.join(' ')}</span>
-            </h3>
-            <h3>
-              Subtitle: <span>{book.subtitle}</span>
-            </h3>
-            <h3>
-              Published: <span>{book.publishedDate}</span>
-            </h3>
-            <h3>
-              Pages: <span>{book.pageCount}</span>
-            </h3>
-            <h3>
-              Categories: <span>{book.categories}</span>
-            </h3>
-            <h3 className={book.listPrice.isOnSale ? 'bold' : ''}>
-              Price:{' '}
-              <span>{`${book.listPrice.amount}${book.listPrice.currencyCode} ${
-                book.listPrice.isOnSale ? 'On Sale!' : ''
-              }`}</span>
-            </h3>
-            <p>Description: <span>{book.description}</span></p>
+          <div className="details-container">
+            <BookDetailsMain book={book}/>
+            <NextPrevBook nextbookId={book.nextbookId} prevbookId={book.prevbookId}/>
           </div>
         </React.Fragment>
       )}
