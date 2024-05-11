@@ -36,13 +36,13 @@ export function AddReview({ isDialogOpen, closeDialog }) {
 
         <div className="flex flex-row">
           <label htmlFor="stars-input">Rate the book:</label>
-          <StarRating />
+          <StarRating handleChange={handleChange} rating={rating}/>
         </div>
 
         <label htmlFor="read-at-input">Read At:</label>
-        <input type="date" id="read-at-input" name="date" />
+        <input type="date" id="read-at-input" name="date" onChange={handleChange} value={date}/>
 
-        <div className="flex flex-column">
+        <div className="review-txt-input flex flex-column">
           <label htmlFor="txt">Your Thoughts:</label>
           <textarea
             id="txt"
