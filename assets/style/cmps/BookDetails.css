@@ -13,6 +13,23 @@
     margin-inline-end: 1em;
 }
 
+.next-prev-book {
+    margin-bottom: 2em;
+    cursor: pointer;
+}
+
+.review-btn {
+    font-size: 1.5em;
+    border: 2px solid white;
+    padding: 0.5em;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.review-btn:hover {
+    opacity: 0.8;
+}
+
 .book-details h2 {
     font-size: 3em;
 }
@@ -20,6 +37,7 @@
 .book-details h3 {
     font-size: 1.4em;
 }
+
 .book-details h2 span {
     font-weight: 200;
 }
@@ -43,13 +61,5 @@
 }
 
 .next-prev-book a:hover {
-    opacity: 0.8;
-}
-
-.next-prev-book a::before {
-    content: '';
-    height: 2px;
-    width: 10px;
-    background-color: white;
     opacity: 0.8;
 }

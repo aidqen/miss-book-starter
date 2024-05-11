@@ -24,13 +24,9 @@ img {
 }
 
 .book-preview {
-    cursor: pointer;
     transition: 0.2s;
 }
 
-/* .book-preview:hover {
-    opacity: 0.8;
-} */
 
 .actions {
     width: 100%;
