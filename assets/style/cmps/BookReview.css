@@ -9,7 +9,7 @@
     z-index: 1;
 }
 
-.dialog {
+.review-modal {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -24,8 +24,20 @@
     font-weight: 700;
 }
 
+.review-modal-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid whitesmoke;
+    width: 100%;
+}
+
 .dialog > * {
     margin: 1em 0.5em;
+}
+
+.dialog > * > * {
+    margin-right: 0.5em;
 }
 
 button {
@@ -42,4 +54,8 @@ button:hover {
 
 .review-txt-input > * {
     margin-bottom: 1em;
+}
+
+.star-rating {
+    cursor: pointer;
 }

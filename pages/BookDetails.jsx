@@ -17,12 +17,25 @@ export function BookDetails() {
     .then(setBook)
   }, [params])
 
-  function openDialog() {
+  function openDialog(ev) {
+    ev.preventDefault()
     setIsDialogOpen(true)
   }
 
-  function closeDialog() {
-    setIsDialogOpen(false)
+  function onToggleDialog(ev) {
+    console.log('hi');
+    setIsDialogOpen(prevState => !prevState)
+  }
+
+  function onSaveReview(review) {
+    bookService.saveReview(book.id, review)
+      .then((review) => {
+        const reviews = {review, ...book.reviews}
+        setBook({...book, reviews})
+      })
+      .catch(() => {
+        showErrorMsg(`Review to ${book.title} Failed!`, book.id)
+    }).then(console.log(book))
   }
 
   return (
@@ -34,7 +47,7 @@ export function BookDetails() {
             <BookDetailsMain book={book}/>
             <NextPrevBook nextbookId={book.nextbookId} prevbookId={book.prevbookId}/>
             <button className="review-btn" onClick={openDialog}>Add Review</button>
-            {isDialogOpen && <AddReview isDialogOpen={isDialogOpen} closeDialog={closeDialog} />}
+            {isDialogOpen && <AddReview onToggleDialog={onToggleDialog} onSaveReview={onSaveReview} />}
           </div>
         </React.Fragment>
       )}

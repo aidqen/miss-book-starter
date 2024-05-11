@@ -2,19 +2,45 @@ import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const BOOK_KEY = 'bookDB'
-_createBooks()
+// _createBooks()
 
 export const bookService = {
   query,
   get,
   remove,
   save,
-//   getEmptyBook,
-//   getDefaultFilter,
+  saveReview
   
 }
 // For Debug (easy access from console):
 // window.cs = bookService
+
+function saveReview(bookId, review) {
+  const books = _loadBooksFromStorage()
+  const book = books.find((book) => book.id === bookId)
+  const modReview = _createReview(review)
+  console.log(modReview);
+  console.log(book);
+  console.log(book.reviews);
+  book.reviews.unshift(modReview)
+  _saveBooksToStorage(books)
+  return Promise.resolve(modReview)
+}
+
+function _createReview(reviewToSave) {
+  return {
+      id: utilService.makeId(),
+      ...reviewToSave,
+  }
+}
+
+function _saveBooksToStorage(books) {
+  storageService.saveToStorage(BOOK_KEY, books)
+}
+
+function _loadBooksFromStorage() {
+  return storageService.loadFromStorage(BOOK_KEY)
+}
 
 function query(filterBy = {}) {
   return storageService.query(BOOK_KEY).then(books => {
@@ -51,7 +77,7 @@ function save(book) {
 }
 
 function _createBooks() {
-  if (!(storageService.query(BOOK_KEY).length === 0)) return
+  // if ((storageService.query(BOOK_KEY).then(books => books.length === 0))) return
   
   const ctgs = ['Love', 'Fiction', 'Poetry', 'Computers', 'Religion']
   const books = []
@@ -73,6 +99,7 @@ function _createBooks() {
         currencyCode: 'EUR',
         isOnSale: Math.random() > 0.7,
       },
+      reviews: []
     }
     books.push(book)
   }
