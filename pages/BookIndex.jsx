@@ -8,6 +8,11 @@ export function BookIndex() {
   const [filterBy, setFilterBy] = useState({ minPrice: 0, txt: '' })
 
   useEffect(() => {
+    initializeBooks()
+  }, [filterBy])
+  
+
+  function initializeBooks() {
     bookService
       .query(filterBy)
       .then(booksPrm => setBooks(booksPrm))
@@ -15,7 +20,7 @@ export function BookIndex() {
         console.eror('err:', err)
         showErrorMsg('Cannot load cars')
       })
-  }, [filterBy])
+  }
 
   function onRemove(bookId) {
     bookService.remove(bookId)

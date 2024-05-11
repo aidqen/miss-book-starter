@@ -17,10 +17,6 @@ export function BookDetails() {
     .then(setBook)
   }, [params])
 
-  if (book) {
-    console.log(book)
-  }
-
   function openDialog() {
     setIsDialogOpen(true)
   }

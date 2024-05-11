@@ -1,5 +1,5 @@
 
-export function BookPreview({ book, onRemove }) {
+export function BookPreview({ book }) {
   const {title, authors, subtitle, publishedDate, pageCount, categories, listPrice, idx,} = book
 
   return (

@@ -51,7 +51,7 @@ function save(book) {
 }
 
 function _createBooks() {
-  if (storageService.query(BOOK_KEY).length === 0) return
+  if (!(storageService.query(BOOK_KEY).length === 0)) return
   
   const ctgs = ['Love', 'Fiction', 'Poetry', 'Computers', 'Religion']
   const books = []
