@@ -1,4 +1,3 @@
-const { useParams, useNavigate } = ReactRouter
 
 export function BookPreview({ book, onRemove }) {
   const {title, authors, subtitle, publishedDate, pageCount, categories, listPrice, idx,} = book
