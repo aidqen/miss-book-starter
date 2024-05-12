@@ -10,7 +10,7 @@ export const bookService = {
   remove,
   save,
   saveReview
-  
+
 }
 // For Debug (easy access from console):
 // window.cs = bookService
@@ -29,8 +29,8 @@ function saveReview(bookId, review) {
 
 function _createReview(reviewToSave) {
   return {
-      id: utilService.makeId(),
-      ...reviewToSave,
+    id: utilService.makeId(),
+    ...reviewToSave,
   }
 }
 
@@ -44,6 +44,10 @@ function _loadBooksFromStorage() {
 
 function query(filterBy = {}) {
   return storageService.query(BOOK_KEY).then(books => {
+    if (books.length === 0) {
+      _createBooks()
+    }
+    
     if (filterBy.txt) {
       const regExp = new RegExp(filterBy.txt, 'i')
       books = books.filter(book => regExp.test(book.title))
@@ -52,6 +56,7 @@ function query(filterBy = {}) {
     if (filterBy.minPrice) {
       books = books.filter(book => book.listPrice.amount >= filterBy.minPrice)
     }
+
 
     return books
   })
@@ -78,13 +83,13 @@ function save(book) {
 
 function _createBooks() {
   // if ((storageService.query(BOOK_KEY).then(books => books.length === 0))) return
-  
+
   const ctgs = ['Love', 'Fiction', 'Poetry', 'Computers', 'Religion']
   const books = []
   for (let i = 0; i < 20; i++) {
     const book = {
       id: utilService.makeId(),
-      idx: i+1,
+      idx: i + 1,
       title: utilService.makeLorem(2),
       subtitle: utilService.makeLorem(4),
       authors: [utilService.makeLorem(1)],
