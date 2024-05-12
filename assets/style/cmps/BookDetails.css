@@ -63,3 +63,8 @@
 .next-prev-book a:hover {
     opacity: 0.8;
 }
+
+p span.read-more {
+    cursor: pointer;
+    font-weight: 600;
+}

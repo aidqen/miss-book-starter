@@ -1,7 +1,9 @@
+import { LongTxt } from "./LongTxt.jsx";
+
 export function BookDetailsMain({ book }) {
+  console.log(book.description);
   return (
     <React.Fragment>
-      {/* <img src={`../BooksImages/${book.idx}.jpg`} alt="book-cover" /> */}
         <h2>{book.title}</h2>
         <h3>
           Authors: <span>{book.authors.join(' ')}</span>
@@ -24,9 +26,7 @@ export function BookDetailsMain({ book }) {
             book.listPrice.isOnSale ? 'On Sale!' : ''
           }`}</span>
         </h3>
-        <p>
-          Description: <span>{book.description}</span>
-        </p>
+        <LongTxt desc={book.description}/>
     </React.Fragment>
   )
 }
