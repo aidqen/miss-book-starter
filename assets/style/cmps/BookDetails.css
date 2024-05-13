@@ -1,16 +1,20 @@
 .book-details {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    align-items: center;
     width: 100%;
     height: 100%;
     padding: 4em;
-    border: 1px solid white;
 }
 
 .details-container {
+    display: flex; 
+    justify-content: space-around;
+    align-items: start;
+    padding: 3em;
     margin-inline-end: 1em;
+    border: 1px solid white;
+}
+
+.details-container > * {
+    margin: 1em;
 }
 
 .next-prev-book {
@@ -62,6 +66,7 @@
 
 .next-prev-book a:hover {
     opacity: 0.8;
+    text-decoration:underline;
 }
 
 p span.read-more {

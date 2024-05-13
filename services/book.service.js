@@ -20,8 +20,6 @@ function saveReview(bookId, review) {
   const book = books.find((book) => book.id === bookId)
   const modReview = _createReview(review)
   console.log(modReview);
-  console.log(book);
-  console.log(book.reviews);
   book.reviews.unshift(modReview)
   _saveBooksToStorage(books)
   return Promise.resolve(modReview)

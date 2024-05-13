@@ -2,7 +2,6 @@ const { useState } = React
 
 export function LongTxt({desc, length = 100}) {
     const [isLong, setIsLong] = useState(false)
-    console.log(desc);
 
     function setTxtLength() {
         setIsLong((prevState) => !prevState)

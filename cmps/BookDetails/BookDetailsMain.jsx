@@ -1,7 +1,6 @@
 import { LongTxt } from "./LongTxt.jsx";
 
 export function BookDetailsMain({ book }) {
-  console.log(book.description);
   return (
     <React.Fragment>
         <h2>{book.title}</h2>
