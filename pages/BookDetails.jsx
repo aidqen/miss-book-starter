@@ -47,21 +47,13 @@ export function BookDetails() {
         ) : (
           <React.Fragment>
             <div className="details-container flex flex-row">
-              <img src={`../BooksImages/${book.idx}.jpg`} alt="" />
+              <img src={book.thumbnail} alt="" />
               <div className="flex flex-column">
                 <BookDetailsMain book={book} />
-                <NextPrevBook
-                  nextbookId={book.nextbookId}
-                  prevbookId={book.prevbookId}
-                />
-                <button className="review-btn" onClick={openDialog}>
-                  Add Review
-                </button>
-                {isDialogOpen && (
-                  <AddReview
-                    onToggleDialog={onToggleDialog}
-                    onSaveReview={onSaveReview}
-                  />
+                <NextPrevBook nextbookId={book.nextbookId} prevbookId={book.prevbookId} />
+                <button className="review-btn" onClick={openDialog}>Add Review</button>
+                {isDialogOpen && ( 
+                <AddReview onToggleDialog={onToggleDialog} onSaveReview={onSaveReview}/>
                 )}
               </div>
             </div>

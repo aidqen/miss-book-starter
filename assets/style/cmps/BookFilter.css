@@ -13,3 +13,22 @@
     display: flex;
     align-items: center;
 }
+
+.name-filter input {
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 0.3em;
+}
+
+.name-filter input::placeholder {
+    color: white;
+}
+
+.name-filter input::focus {
+    color: white;
+}
+
+.name-filter, .price-filter {
+    font-weight: 700;
+}

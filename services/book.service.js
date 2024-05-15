@@ -9,8 +9,8 @@ export const bookService = {
   get,
   remove,
   save,
-  saveReview
-
+  saveReview,
+  addBook
 }
 // For Debug (easy access from console):
 // window.cs = bookService
@@ -43,7 +43,7 @@ function _loadBooksFromStorage() {
 function query(filterBy = {}) {
   return storageService.query(BOOK_KEY).then(books => {
     if (books.length === 0) {
-      _createBooks()
+      return _createBooks()
     }
     
     if (filterBy.txt) {
@@ -87,7 +87,6 @@ function _createBooks() {
   for (let i = 0; i < 20; i++) {
     const book = {
       id: utilService.makeId(),
-      idx: i + 1,
       title: utilService.makeLorem(2),
       subtitle: utilService.makeLorem(4),
       authors: [utilService.makeLorem(1)],
@@ -107,6 +106,7 @@ function _createBooks() {
     books.push(book)
   }
   storageService.save(BOOK_KEY, books)
+  return books
 }
 
 
@@ -123,3 +123,7 @@ function _setNextPrevbookId(book) {
   })
 }
 
+function addBook(book) {
+  return query()
+            .then(books => storageService.saveToStorage(BOOK_KEY, [book, ...books]))
+}

@@ -1,0 +1,39 @@
+.search-book-res {
+    padding: 0.5em;
+    border: 1px solid lightslategray;
+}
+
+ul.search-book :first-child {
+    border-radius: 10px 10px 0 0;
+}
+
+ul.search-book :last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+ul.search-book {
+    border-radius: 1em;
+    margin-bottom: 3em;
+}
+
+ul.search-book > * {
+    padding: 1em;
+}
+
+.search-book-input {
+    background-color: transparent;
+    border-radius: 10px;
+    margin-bottom: 0.6em;
+    border: 1px solid rgb(229, 240, 250);
+    padding: 0.6em;
+    transition: 0.2s;
+}
+
+.search-book-input::placeholder {
+    color: white;
+}
+
+.search-book-input:focus {
+    color: white;
+    padding: 0.8em;
+}

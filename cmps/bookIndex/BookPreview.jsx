@@ -1,11 +1,11 @@
 
 export function BookPreview({ book }) {
-  const {title, authors, subtitle, publishedDate, pageCount, categories, listPrice, idx,} = book
+  const {title, authors, subtitle, publishedDate, pageCount, categories, listPrice, idx, thumbnail} = book
 
   return (
     <React.Fragment>
       <h2>{title}</h2>
-      <h3>Authors: <span>{authors.join(' ')}</span></h3>
+      <h3>Authors: <span>{authors.join(', ')}</span></h3>
       <h3>Subtitle: <span>{subtitle}</span></h3>
       <h3>Published: <span>{publishedDate}</span></h3>
       <h3>Pages: <span>{pageCount}</span></h3>
@@ -16,7 +16,8 @@ export function BookPreview({ book }) {
           listPrice.isOnSale ? 'On Sale!' : ''
         }`}</span>
       </h3>
-      <img src={`../../BooksImages/${idx}.jpg`} alt="book-cover" />
+      <img src={thumbnail} alt="book-cover" />
+      
     </React.Fragment>
   )
 }
