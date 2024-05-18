@@ -35,8 +35,7 @@ export function BookFilter({ books, filterBy, onSetFilterBy }) {
           max={maxPrice}
         />
       </div>
-      <div className="name-filter">
-        <div className="search-book-container">
+      <div className="name-filter search-book-container">
           <input
             type="text"
             onChange={handleFilterChange}
@@ -44,8 +43,6 @@ export function BookFilter({ books, filterBy, onSetFilterBy }) {
             name="txt"
           />
           <i className="search-emoji fa-solid fa-magnifying-glass fa-lg"></i>
-        </div>
-        <label htmlFor="search">Search Book</label>
       </div>
     </section>
   )
