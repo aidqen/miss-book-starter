@@ -14,21 +14,31 @@
     align-items: center;
 }
 
-.name-filter input {
+input[type="text"] {
     background-color: transparent;
     border: 1px solid white;
     border-radius: 8px;
-    padding: 0.3em;
+    padding: 0.7em;
+    transition: 0.2s;
 }
+
+.search-book-input {
+    margin-bottom: 0.6em;
+}
+
 
 .name-filter input::placeholder {
     color: white;
 }
 
-.name-filter input::focus {
-    color: white;
+input[type="text"]:focus {
+    color: white; /* Change the color to black when the input is focused */
 }
 
 .name-filter, .price-filter {
     font-weight: 700;
+}
+
+input[type="text"]:not(:focus) {
+    color: white; /* Ensure the color is white when not focused */
 }

@@ -20,15 +20,6 @@ ul.search-book > * {
     padding: 1em;
 }
 
-.search-book-input {
-    background-color: transparent;
-    border-radius: 10px;
-    margin-bottom: 0.6em;
-    border: 1px solid rgb(229, 240, 250);
-    padding: 0.6em;
-    transition: 0.2s;
-}
-
 .search-book-input::placeholder {
     color: white;
 }

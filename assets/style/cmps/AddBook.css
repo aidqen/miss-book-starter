@@ -1,0 +1,28 @@
+.search-book-container {
+    position: relative;
+}
+
+.search-emoji {
+    position: absolute;
+    right: 0.7em;
+    top: 1.2em;
+}
+
+.search-emoji-1 {
+    position: absolute;
+    right: 0.7em;
+    top: 1.2em;
+}
+
+.search-book-res {
+    transition: .2s border-color;
+}
+
+.search-book-res:hover {
+    border-color: white;
+}
+
+.search-book-res button:hover {
+    color: yellow;
+}
+
