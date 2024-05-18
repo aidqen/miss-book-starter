@@ -9,10 +9,14 @@ export function BookAdd({ addBook }) {
 
   function handleSearch({ target }) {
     setBookSearch(target.value)
-    if (target.value.length > 3) {
+    if (target.value.length > 2) {
       searchService
         .getSearchBooks(target.value)
         .then(res => setSearchResults(res.slice(0, 5)))
+    }
+
+    if (target.value.length === 0) {
+      setSearchResults(null)
     }
   }
 
@@ -22,8 +26,9 @@ export function BookAdd({ addBook }) {
   return (
     <React.Fragment>
       <div className="searches-container">
-        <div className="flex flex-column">
+        <div className="search-book-container flex flex-column">
           <input type="text" className='search-book-input' placeholder='Search book to add' onChange={handleSearch} value={bookSearch} />
+          <i className="search-emoji fa-solid fa-magnifying-glass fa-lg"></i>
         </div>
         {searchResults && <BookSearchList searchResults={searchResults} addBook={addBook}/>}
       </div>
